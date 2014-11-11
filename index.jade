@@ -1,1 +1,22 @@
-h1 Hello World
+html
+	head
+		link(rel="stylesheet", type="text/css", href="/bijou/bijou.min.css")
+		link(rel="stylesheet", type="text/css", href="/pulse.css")
+	body
+		div.navbar.fixed
+			div.container
+				h4.pull-left Pulse
+				h5.pull-left Beat Timer
+
+		div.container.content
+			h1.timeleft
+				span.number 
+				span.desc No Timer Started
+			input.beats(placeholder="How many beats do you want on the timer?")
+			div.controls
+				button.button.primary.large.start Start
+				button.button.danger.small.stop Stop
+				button.button.primary.small.reset Reset
+		script(type="text/javascript", src="//code.jquery.com/jquery-2.1.1.min.js")
+		script(type="text/javascript", src="/pulse.js")
+
