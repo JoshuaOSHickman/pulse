@@ -33,6 +33,12 @@ updateDisplay = (live=running) ->
 		initialized = true
 	if live
 		liveAmountLeft = timeLeft - ((+new Date - timeStarted) / 86400)
-		timeLeftDisplay.text liveAmountLeft.toFixed(2)
+		if liveAmountLeft > 0
+			timeLeftDisplay.text liveAmountLeft.toFixed(2)
+		else
+			timeLeftDisplay.text ""
+			desc.text "Done!"
+			running = false
+			timeleft = 0
 
 setInterval updateDisplay, 100
