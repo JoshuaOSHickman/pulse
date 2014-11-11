@@ -2,6 +2,10 @@ startbtn = $ ".start"
 stopbtn = $ ".stop"
 resetbtn = $ ".reset"
 input = $ "input.beats"
+desc = $(".timeleft .desc")
+timeLeftDisplay = $(".timeleft .number")
+
+desiredDing = new Audio "http://www.sounddogs.com/previews/2125/mp3/249993_SOUNDDOGS__be.mp3"
 
 running = false
 timeLeft = null
@@ -24,9 +28,10 @@ resetbtn.click ->
 	timeStarted = +new Date # ???
 	updateDisplay true
 
+
+# UI state
 initialized = false
-desc = $(".timeleft .desc")
-timeLeftDisplay = $(".timeleft .number")
+
 updateDisplay = (live=running) ->
 	if timeLeft isnt null and not initialized
 		desc.text " Beats Left"
@@ -40,5 +45,6 @@ updateDisplay = (live=running) ->
 			desc.text "Done!"
 			running = false
 			timeleft = 0
+			desiredDing.play()
 
 setInterval updateDisplay, 100
